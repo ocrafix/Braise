@@ -16,7 +16,7 @@ const sportLabel=j=>PLAN[j]==="repos"?"Mobilité douce":seanceDe(j).titre;
 function nav(){
 const l=(h,t)=>`<a href="${h}" class="${page===h.replace(".html","")||(h==="index.html"&&page==="index")?"on":""}">${t}</a>`;
 return `<nav class="nav"><a href="index.html"><strong>🔥 Braise</strong></a><div>${l("index.html","Accueil")}${l("suivi.html","Suivi")}</div></nav>`}
-const shell=html=>{app.innerHTML=nav()+html};
+const shell=html=>{let h=$("#top");if(!h){h=document.createElement("header");h.id="top";app.before(h)}h.innerHTML=nav();app.innerHTML=html};
 const hero=(e,t,p="")=>`<section class="hero"><span class="eyebrow">${e}</span><h1>${t}</h1>${p?`<p>${p}</p>`:""}</section>`;
 
 function accueil(){
