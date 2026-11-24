@@ -1,4 +1,4 @@
-const CACHE="routine-v8";
+const CACHE="routine-v9";
 const FILES=["./","index.html","jour.html","sport.html","soin.html","suivi.html","404.html","base.css","components.css","pages.css","data.js","timer.js","app.js","manifest.json","icons/icon-192.png","icons/icon-512.png"];
 self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>Promise.all(FILES.map(f=>c.add(f).catch(()=>{})))))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
